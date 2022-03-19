@@ -8,8 +8,7 @@ public:
         {
             if(prices[i]<min)
                 min=prices[i];
-            diff=prices[i]-min;
-            profit=max(profit,diff);
+            profit=max(profit,prices[i]-min);
         }
         return profit;
     }
