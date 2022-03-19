@@ -1,2 +1,2 @@
 # LeetCode
-Practising leetcode problems.
+Leetcode problems solved in C++, using easy methods.
