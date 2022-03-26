@@ -18,7 +18,7 @@ public:
         ListNode* part2=ptr2;
         if(head==NULL || head->next==NULL)
             return head;
-        while(temp->next!=NULL)
+        while(temp!=NULL)
         {
             if(temp->val<x)
             {
@@ -32,21 +32,8 @@ public:
             }
             temp=temp->next;
         }
-        
-        if(temp->val<x)
-        {
-            ptr1->next=temp;
-            ptr2->next=NULL;
-            ptr1->next->next=part2->next;
-        }
-        else
-        {
-            ptr2->next=temp;
-            ptr2=ptr2->next;
-            ptr2->next=NULL;
-            ptr1->next=part2->next;
-        }
-        
+        ptr2->next=NULL;
+        ptr1->next=part2->next;
         return part1->next;
     }
 };
