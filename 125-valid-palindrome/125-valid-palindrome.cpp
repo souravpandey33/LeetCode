@@ -7,7 +7,7 @@ public:
             if(isdigit(s[i]) || isalpha(s[i]))
                 s[count++]=s[i];
         }
-        s[count]='\0';
+        // s[count]='\0';
         for(int i=0;i<count;i++)
         {
             s[i]=tolower(s[i]);
