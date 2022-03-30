@@ -16,9 +16,9 @@ public:
                 return end;
             if(nums[mid]>nums[mid+1] && nums[mid]>nums[mid-1] && mid>0 && mid<end) // if element at mid is peak
                 return mid; 
-            else if(nums[mid]>nums[mid+1])
+            else if(nums[mid]>nums[mid+1]) // if peak is in the first half
                 end=mid-1;
-            else
+			else                           // if peak is in the second half
                 start=mid+1;
         }
         return -1;
