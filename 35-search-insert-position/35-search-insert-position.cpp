@@ -7,6 +7,7 @@ public:
         int mid;
         while(start<=end)
         {
+            cout<<end<<endl;
             mid=start+(end-start)/2;
             if(nums[mid]>target)
                 end=mid-1;
@@ -15,6 +16,7 @@ public:
             else
                 return mid;
         }
+        cout<<end;
         return end+1;
     }
 };
