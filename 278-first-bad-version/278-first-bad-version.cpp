@@ -11,13 +11,13 @@ public:
         while(start<=end)
         {
             mid=start+(end-start)/2;
-            if(isBadVersion(mid))
+            if(isBadVersion(mid)) // bad from mid or before mid
             {
                 ans=mid;
                 end=mid-1;
             }
             else
-                start=mid+1;
+                start=mid+1; // bad after mid
         }
         return ans;
     }
