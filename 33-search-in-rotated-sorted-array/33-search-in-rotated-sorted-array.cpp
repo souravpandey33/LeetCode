@@ -6,7 +6,7 @@ public:
         int e=n-1;
         while(s<=e)
         {
-            int m=s+(e-s)/2;
+            int m=(e+s)/2;
             if(target==nums[m])
                 return m;
             if(nums[s]<=nums[m])
