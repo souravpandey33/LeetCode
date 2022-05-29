@@ -11,7 +11,6 @@ public:
         int i;
         for(i=1;i<=n;i++)
         {
-            cout<<check[i];
             if(check[i]==0)
             {
                 return i;
