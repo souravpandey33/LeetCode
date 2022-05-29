@@ -5,7 +5,7 @@ public:
         vector<int> check(n+1,0);
         for(int i=0;i<n;i++)
         {
-            if(nums[i]>=0 && nums[i]<=n && check[nums[i]]==0)
+            if(nums[i]>=0 && nums[i]<=n)
                 check[nums[i]]=-1;
         }
         int i;
