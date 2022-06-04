@@ -8,7 +8,7 @@ public:
         int colS=0;
         int rowE=m-1;
         int colE=n-1;
-        while(rowS<=rowE && colS<=colE)
+        while(1)
         {
             for(int i=colS;i<=colE;i++)
             {
