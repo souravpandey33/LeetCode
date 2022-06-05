@@ -22,6 +22,6 @@ public:
                 end--;
             }
         }
-        return nums[mid];
+        return nums[start];
     }
 };
