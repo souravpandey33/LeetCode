@@ -21,16 +21,12 @@ public:
     {
         if(root==NULL)
             return;
-        st=st+to_string(root->val)+"->";
-        check(root->left,ans,st);
-        check(root->right,ans,st);
+        // st=st+to_string(root->val)+"->";
+        check(root->left,ans,st+to_string(root->val)+"->");
+        check(root->right,ans,st+to_string(root->val)+"->");
         if(root->left==NULL && root->right==NULL)
         {
-            if(st[st.length()-1]=='>')
-            {
-                st.pop_back();
-                st.pop_back();
-            }
+            st=st+to_string(root->val);
             ans.push_back(st);
         }
     }
