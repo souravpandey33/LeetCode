@@ -13,7 +13,6 @@ class Solution {
 public:
     bool ans=false;
     bool hasPathSum(TreeNode* root, int targetSum) {
-        
         check(root,0,targetSum);
         return ans;
     }
@@ -24,14 +23,10 @@ public:
             return;
         check(root->left,curr+root->val,targetSum);
         check(root->right,curr+root->val,targetSum);
-        if(root->left==NULL && root->right==NULL)
+        if(root->left==NULL && root->right==NULL && curr+root->val == targetSum)
         {
-            if(curr+root->val == targetSum)
-            {
-                ans=true;
-                cout<<curr+root->val;
-                exit;
-            }
+            ans=true;
+            exit;
         }
     }
 };
