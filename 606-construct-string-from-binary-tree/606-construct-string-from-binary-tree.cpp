@@ -28,12 +28,10 @@ public:
             check(root->left);
             s=s+')';
         }
-        if(!root->left && root->right)
-        {
-            s=s+"()";
-        }
         if(root->right)
         {
+            if(!root->left)
+                s=s+"()";
             s=s+'(';
             check(root->right);
             s=s+')';
