@@ -13,19 +13,13 @@ class Solution {
 public:
     string s="";
     string tree2str(TreeNode* root) {
-        check(root);
-        return s;
-    }
-    
-    void check(TreeNode* root)
-    {
         if(root==NULL)
-            return;
+            return "";
         s=s+to_string(root->val);
         if(root->left)
         {
             s=s+'(';
-            check(root->left);
+            tree2str(root->left);
             s=s+')';
         }
         if(root->right)
@@ -33,8 +27,9 @@ public:
             if(!root->left)
                 s=s+"()";
             s=s+'(';
-            check(root->right);
+            tree2str(root->right);
             s=s+')';
         }
+        return s;
     }
 };
