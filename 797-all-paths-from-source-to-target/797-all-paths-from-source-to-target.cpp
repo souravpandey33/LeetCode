@@ -18,18 +18,22 @@ public:
             return;
         }
         
-        if(visit[curr]==true)
-            return;
+        // if(visit[curr]==true)
+        //     return;
         
-        visit[curr]=true;
-        
-        for(auto neigh:graph[curr])
+        // visit[curr]=true;
+        else
         {
-            path.push_back(neigh);
-            check(graph,result,path,neigh,n,visit);
-            path.pop_back();
+            for(auto neigh:graph[curr])
+            {
+                path.push_back(neigh);
+                check(graph,result,path,neigh,n,visit);
+                path.pop_back();
+            }
         }
         
-        visit[curr]=false;
+        
+        
+        // visit[curr]=false;
     }
 };
