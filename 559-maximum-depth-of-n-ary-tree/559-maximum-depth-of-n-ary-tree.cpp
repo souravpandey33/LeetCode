@@ -26,8 +26,8 @@ public:
         int ans=0;
         for(int i=0;i<root->children.size();i++)
         {
-            int temp=maxDepth(root->children[i]);
-            ans=max(ans,temp);
+            int depth=maxDepth(root->children[i]);
+            ans=max(ans,depth);
         }
         return 1+ans;
     }
