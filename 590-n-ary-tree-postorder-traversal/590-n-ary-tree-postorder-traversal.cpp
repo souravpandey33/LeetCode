@@ -34,7 +34,6 @@ public:
         for(int i=0;i<root->children.size();i++)
         {
             post(root->children[i],ans);
-            // ans.push_back(root->val);
         }
         ans.push_back(root->val);
     }
