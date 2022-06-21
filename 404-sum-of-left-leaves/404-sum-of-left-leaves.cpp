@@ -11,21 +11,25 @@
  */
 class Solution {
 public:
-    int sum=0;
     int sumOfLeftLeaves(TreeNode* root) {
-        int flag=0;
-        check(root,flag);
-        return sum;
+        int ans=0;
+        if(root==NULL)
+            return 0;
+        check(root,ans,0);
+        return ans;
     }
-    void check(TreeNode* root, int flag)
+    
+    void check(TreeNode* root, int &ans,int flag)
     {
         if(root==NULL)
             return;
-        check(root->left,1);
-        check(root->right,0);
+        
+        check(root->left,ans,1);
+        check(root->right,ans,0);
+        
         if(root->left==NULL && root->right==NULL && flag==1)
-        {
-            sum=sum+root->val;
-        }
+            ans+=root->val;
+        
     }
+    
 };
