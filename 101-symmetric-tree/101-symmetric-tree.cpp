@@ -14,10 +14,10 @@ public:
     bool isSymmetric(TreeNode* root) {
         if(root==NULL)
             return true;
-        return check(root->left,root->right);
+        return (mirror(root->left,root->right));
     }
     
-    bool check(TreeNode* l, TreeNode* r)
+    bool mirror(TreeNode* l, TreeNode* r)
     {
         if(l==NULL && r==NULL)
             return true;
@@ -25,6 +25,7 @@ public:
             return false;
         if(l->val!=r->val)
             return false;
-        return (check(l->left,r->right) && check(l->right,r->left));
+        
+        return (mirror(l->left,r->right) && mirror(l->right,r->left));
     }
 };
