@@ -13,18 +13,19 @@ class Solution {
 public:
     int sumNumbers(TreeNode* root) {
         int ans=0;
-        sum(root,0,ans);
+        check(root,ans,0);
         return ans;
     }
     
-    void sum(TreeNode* root, int value, int &ans)
+    void check(TreeNode* root, int &ans, int curr)
     {
         if(root==NULL)
             return;
+        check(root->left,ans,(curr*10)+root->val);
+        check(root->right,ans,(curr*10)+root->val);
         
-        sum(root->left,(value*10)+root->val,ans);
-        sum(root->right,(value*10)+root->val,ans);
         if(root->left==NULL && root->right==NULL)
-            ans+=(value*10)+root->val;
+            ans=ans+((curr*10)+root->val);
     }
+    
 };
