@@ -13,6 +13,8 @@ class Solution {
 public:
     bool ans=true;
     bool isBalanced(TreeNode* root) {
+        if(root==NULL)
+            return ans;
         check(root);
         return ans;
     }
@@ -24,9 +26,14 @@ public:
         int l=1+check(root->left);
         int r=1+check(root->right);
         
-        if(abs(l-r)>1)
+        if(abs(l-r)>1){
             ans=false;
+            exit;
+        }
+            
         
         return max(l,r);
     }
+    
+    
 };
