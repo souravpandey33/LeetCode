@@ -14,18 +14,19 @@ public:
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         vector<vector<int>> ans;
         vector<int> grp;
-        check(root,0,targetSum,ans,grp);
+        check(root,ans,grp,0,targetSum);
         return ans;
     }
     
-    void check(TreeNode* root, int curr, int target, vector<vector<int>> &ans,vector<int> &grp)
+    void check(TreeNode* root, vector<vector<int>> &ans, vector<int> &grp, int curr, int targetSum)
     {
         if(root==NULL)
             return;
         grp.push_back(root->val);
-        check(root->left,curr+root->val,target,ans,grp);
-        check(root->right,curr+root->val,target,ans,grp);
-        if(root->left==NULL && root->right==NULL && curr+root->val==target)
+        check(root->left,ans,grp,curr+root->val,targetSum);
+        check(root->right,ans,grp,curr+root->val,targetSum);
+        
+        if(root->left==NULL && root->right==NULL && curr+root->val==targetSum)
         {
             ans.push_back(grp);
         }
