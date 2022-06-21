@@ -17,16 +17,19 @@ public:
         return ans;
     }
     
-    void check(TreeNode* root, int curr,int targetSum)
+    void check(TreeNode* root, int curr, int targetSum)
     {
         if(root==NULL)
             return;
+        
         check(root->left,curr+root->val,targetSum);
         check(root->right,curr+root->val,targetSum);
-        if(root->left==NULL && root->right==NULL && curr+root->val == targetSum)
+        
+        if(!root->left && !root->right && curr+root->val==targetSum)
         {
             ans=true;
             exit;
         }
     }
+    
 };
