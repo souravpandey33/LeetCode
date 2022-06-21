@@ -22,6 +22,7 @@ public:
     {
         if(root==NULL)
             return;
+        
         if(s.find(curr)==s.end())
         {
             s.insert(curr);
@@ -30,4 +31,5 @@ public:
         check(root->right,ans,s,curr+1);
         check(root->left,ans,s,curr+1);
     }
+    
 };
