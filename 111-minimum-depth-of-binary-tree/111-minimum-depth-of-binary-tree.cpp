@@ -12,48 +12,50 @@
 
 // DFS recursive solution
 
-// class Solution {
-// public:
-//     int minDepth(TreeNode* root) {
-//         if(root==NULL)
-//             return 0;
-//         if(root->right==NULL)
-//             return 1+minDepth(root->left);
-//         else if(root->left==NULL)
-//             return 1+minDepth(root->right);
-//         else
-//             return 1+min(minDepth(root->right),minDepth(root->left));
-//     }
-// };
-
-
-
-// BFS iterative solution
-
 class Solution {
 public:
     int minDepth(TreeNode* root) {
         if(root==NULL)
             return 0;
-        queue<TreeNode*> q;
-        q.push(root);
-        int depth=0;
-        while(!q.empty())
-        {
-            int n=q.size();
-            while(n--)
-            {
-                TreeNode* temp=q.front();
-                q.pop();
-                if(!temp->right && !temp->left)
-                    return 1+depth;
-                if(temp->right)
-                    q.push(temp->right);
-                if(temp->left)
-                    q.push(temp->left);
-            }
-            depth++;
-        }
-        return depth+1;
+        if(root->right==NULL)
+            return 1+minDepth(root->left);
+        else if(root->left==NULL)
+            return 1+minDepth(root->right);
+        else if(root->left==NULL && root->right==NULL)
+            return 1;
+        else
+            return 1+min(minDepth(root->right),minDepth(root->left));
     }
 };
+
+
+
+// BFS iterative solution
+
+// class Solution {
+// public:
+//     int minDepth(TreeNode* root) {
+//         if(root==NULL)
+//             return 0;
+//         queue<TreeNode*> q;
+//         q.push(root);
+//         int depth=0;
+//         while(!q.empty())
+//         {
+//             int c=q.size();
+//             while(c--)
+//             {
+//                 TreeNode* temp=q.front();
+//                 q.pop();
+//                 if(!temp->right && !temp->left)
+//                     return 1+depth;
+//                 if(temp->right)
+//                     q.push(temp->right);
+//                 if(temp->left)
+//                     q.push(temp->left);
+//             }
+//             depth++;
+//         }
+//         return depth+1;
+//     }
+// };
