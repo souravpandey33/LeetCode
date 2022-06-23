@@ -14,16 +14,11 @@ public:
     
     void check(vector<int> &nums, int n, int curr, int sumRight, int sumLeft)
     {
-        // if(curr>=n)
-        //     return;
-        cout<<sumLeft<<"   "<<sumRight<<endl;
         if(sumRight==sumLeft)
         {
-            cout<<sumLeft<<"   "<<sumRight<<endl;
             index=curr;
             return;
         }
-        
         if(curr==n-1)
             return;
         check(nums,n,curr+1,sumRight-nums[curr+1], sumLeft+nums[curr]);
