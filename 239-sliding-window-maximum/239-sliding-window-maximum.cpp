@@ -1,11 +1,12 @@
 class Solution {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
-        vector<int> ans;
-        int size=nums.size();
-        deque<int> q;
         int i=0;
         int j=0;
+        int size=nums.size();
+        deque<int> q;
+        vector<int> ans;
+        
         while(j<size)
         {
             while(!q.empty() && nums[j]>q.back())
@@ -20,8 +21,7 @@ public:
             else
             {
                 ans.push_back(q.front());
-                
-                if(nums[i]==q.front())
+                if(q.front()==nums[i])
                 {
                     q.pop_front();
                 }
