@@ -34,7 +34,8 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head)
     {
-        return rev(head,NULL);
+        head=rev(head,NULL);
+        return head;
     }
     
     ListNode* rev(ListNode* head,ListNode* prev)
