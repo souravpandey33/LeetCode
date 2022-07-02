@@ -11,46 +11,51 @@ public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         ListNode* tempA=headA;
         ListNode* tempB=headB;
-        int countA=0;
-        int countB=0;
+        
+        int ca=0;
+        int cb=0;
+        
         while(tempA)
         {
-            countA++;
+            ca++;
             tempA=tempA->next;
         }
+        
         while(tempB)
         {
-            countB++;
+            cb++;
             tempB=tempB->next;
         }
-        tempA=headA;
-        tempB=headB;
-        int diff;
-        if(countA>countB)
+        
+        int diff=0;
+        
+        if(ca>cb)
         {
-            diff=countA-countB;
-            while(diff>0)
+            diff=ca-cb;
+            while(diff--)
             {
-                tempA=tempA->next;
-                diff--;
+                headA=headA->next;
             }
         }
         else
         {
-            diff=countB-countA;
-            while(diff>0)
+            diff=cb-ca;
+            while(diff--)
             {
-                tempB=tempB->next;
-                diff--;
+                headB=headB->next;
             }
         }
-        while(tempA && tempB)
+        
+        while(headA && headB)
         {
-            if(tempA==tempB)
-                return tempA;
-            tempA=tempA->next;
-            tempB=tempB->next;
+            if(headA==headB)
+            {
+                return headA;
+            }
+            headA=headA->next;
+            headB=headB->next;
         }
+        
         return NULL;
     }
 };
