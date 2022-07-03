@@ -11,44 +11,51 @@
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int left, int right) {
-        int i,j;
-        if(left==right)
-            return head;
+        ListNode* start=head;
+        ListNode* end=head;
+        int dumleft=left;
+        int diff=right-left+1;
+        left--;
+        
         ListNode* temp=head;
-        for(i=1;i<right;i++)
+        while(left--)
         {
+            start=temp;
             temp=temp->next;
         }
-        ListNode* rest=temp->next; // storing the part after sorting part
-        temp=head;
-        ListNode* font=temp;
-        for(i=1;i<left;i++)
+        
+        while(right--)
         {
-            font=temp;          // storing the part after sorting part
-            temp=temp->next;
+            end=end->next;
         }
+        
         ListNode* curr=temp;
-        ListNode* ptr;
         ListNode* prev=NULL;
-        int k=right-left+1;
-        while(curr!=NULL && k>0)
+        ListNode* ptr;
+        
+        while(curr && diff)
         {
             ptr=curr->next;
             curr->next=prev;
             prev=curr;
             curr=ptr;
-            k--;
+            diff--;
         }
-        if(left==1)                 // if sorting from first element then directly change head
+        
+        if(dumleft==1)
             head=prev;
-        else                        // if not then add after font 
-            font->next=prev;
+        else
+            start->next=prev;
+        
         ptr=head;
+        
         while(ptr->next)
         {
             ptr=ptr->next;
         }
-        ptr->next=rest;                // add the remaining part
+        
+        ptr->next=end;
+        
         return head;
     }
 };
