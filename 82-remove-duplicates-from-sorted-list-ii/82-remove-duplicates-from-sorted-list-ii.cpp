@@ -25,7 +25,6 @@ public:
         {
             if(mp[temp->val]==1)
             {
-                cout<<mp[temp->val]<<"  "<<temp->val<<endl;
                 ptr->next=new ListNode(temp->val);
                 ptr=ptr->next;
             }
