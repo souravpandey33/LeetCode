@@ -7,24 +7,20 @@ public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
         sort(boxTypes.begin(),boxTypes.end(),cmp);
         
-        int count=0;
         int ans=0;
         
         for(int i=0;i<boxTypes.size();i++)
         {
-            int remain=truckSize-count;
             int curr_unit=boxTypes[i][1];
             int no_box=boxTypes[i][0];
-            cout<<no_box<<"  "<<remain<<endl;
-            if(no_box<remain)
+            if(no_box<truckSize)
             {
-                count=count+no_box;
+                truckSize-=no_box;
                 ans=ans+(no_box*curr_unit);
             }
             else
             {
-                count=count+remain;
-                ans=ans+(remain*curr_unit);
+                ans=ans+(truckSize*curr_unit);
                 break;
             }
         }
