@@ -17,14 +17,6 @@ public:
                 ans++;
             }
         }
-        // for(int i=0;i<points.size();i++)
-        // {
-        //     for(int j=0;j<2;j++)
-        //     {
-        //         cout<<points[i][j]<<"  ";
-        //     }
-        //     cout<<endl;
-        // }
         return ans;
     }
 };
